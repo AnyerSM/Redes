@@ -1,0 +1,196 @@
+FRAME-RELAY
+
+R1
+
+enable
+configure terminal
+hostname R1
+line vty 0 4
+password cisco
+login 
+exit 
+line console 0
+password class
+login 
+exit
+enable secret cisco
+int se 0/0/0
+ip add 192.168.100.1 255.255.255.240
+encapsulation frame-relay
+no shu
+
+
+
+R2
+
+enable
+configure terminal
+hostname R2
+line vty 0 4
+password cisco
+login 
+exit 
+line console 0
+password class
+login 
+exit
+enable secret cisco
+int se 0/0/0
+ip add 192.168.100.2 255.255.255.240
+encapsulation frame-relay
+no shu
+
+R3
+
+enable
+configure terminal
+hostname R3
+line vty 0 4
+password cisco
+login 
+exit 
+line console 0
+password class
+login 
+exit
+enable secret cisco
+int se 0/0/0
+ip add 192.168.100.3 255.255.255.240
+encapsulation frame-relay
+no shu
+
+#########################################################
+PPP CHAP
+
+R1
+
+enable
+configure terminal
+hostname R1
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password class
+login
+exit
+enable secret class
+
+interface se 0/0/0
+ip address 200.50.50.1 255.255.255.0
+clock rate 128000
+no shutdown
+exit
+
+interface gi 0/0
+ip address 10.0.0.1 255.255.0.0
+no shutdown
+exit
+
+router eigrp 1
+network 210.50.50.0 
+network 10.0.0.0
+exit
+
+username R1 password 12345
+interface se 0/0/0
+encapsulation ppp
+ppp authentication chap
+username R2 password 12345
+exit
+-------------------------
+R2
+
+enable
+configure terminal
+hostname R2
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password class
+login
+exit
+enable secret class
+
+interface se 0/0/0
+ip address 200.50.50.2 255.255.255.0
+no clock rate
+no shutdown
+exit
+
+interface se 0/0/1
+ip address 210.50.50.1 255.255.255.0
+clock rate 128000
+no shutdown
+exit
+
+interface gi 0/0
+ip address 20.0.0.1 255.255.0.0
+no shutdown
+exit
+
+router eigrp 1
+network 210.50.50.0
+network 210.50.50.0
+network 20.0.0.0
+exit
+
+username R2 password 12345
+interface se 0/0/0
+encapsulation ppp
+ppp authentication chap
+username R1 password 12345
+
+username R2 password 12345
+interface se 0/0/1
+encapsulation ppp
+ppp authentication chap
+username R3 password 12345
+exit
+
+
+--------------------------
+R3
+
+enable
+configure terminal
+hostname R3
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password class
+login
+exit
+enable secret class
+
+interface se 0/0/0
+ip address 210.50.50.2 255.255.255.0
+no clock rate
+no shutdown
+exit
+
+interface gi 0/0
+ip address 30.0.0.1 255.255.0.0
+no shutdown
+exit
+
+router eigrp 1
+network 210.50.50.0
+network 30.0.0.0
+exit
+
+username R3 password 12345
+interface se 0/0/0
+encapsulation ppp
+ppp authentication chap
+username R2 password 12345
+exit
+
+#####################################################################
+PPP CON PAP
+
