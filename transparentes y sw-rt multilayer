@@ -1,0 +1,227 @@
+enable
+configure terminal
+hostname sw0
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 10
+name administrativa
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 10
+
+interface vlan 10
+ip address 172.20.0.2 255.255.255.224
+exit
+ip default-gateway 172.20.0.1
+
+
+
+#########################################################
+enable
+configure terminal
+hostname sw1
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 11
+name produccion_A
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 11
+
+interface vlan 11
+ip address 172.20.0.130 255.255.255.224
+exit
+ip default-gateway 172.20.0.129
+
+##############################################################}
+enable
+configure terminal
+hostname sw2
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 12
+name produccion_B
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 12
+
+interface vlan 12
+ip address 172.20.1.4 255.255.255.224
+exit
+
+ip default-gateway 172.20.1.1
+#####################################################
+
+
+
+enable
+configure terminal
+hostname sw3
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 13
+name produccion_A
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 13
+
+interface vlan 13
+ip address 172.20.1.130 255.255.255.224
+exit
+ip default-gateway 172.20.1.129
+###########################################################
+
+enable
+configure terminal
+hostname sw4
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 14
+name produccion
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 14
+
+interface vlan 14
+ip address 172.20.2.2 255.255.255.224
+exit
+ip default-gateway 172.20.2.1
+##################################################
+
+enable
+configure terminal
+hostname sw5
+enable secret cisco
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login 
+exit
+
+vtp mode transparent
+vtp domain unitec
+vtp password cisco
+
+vlan 15
+name almacen
+exit
+
+interface range fa0/1-24
+switchport mode access
+switchport access vlan 15
+
+interface vlan 15
+ip address 172.20.2.130 255.255.255.224
+exit
+ip default-gateway 172.20.2.129
+
+#####################################################
+#####################################################
+#####################################################
+
+enable
+configure terminal
+
+interface fa 0/2
+no switchport
+ip address 172.20.0.1 255.255.255.224
+exit
+
+interface fa 0/3
+no switchport
+ip address 172.20.0.129 255.255.255.224
+exit
+
+interface fa 0/4
+no switchport
+ip address 172.20.1.1 255.255.255.224
+exit
+
+interface fa 0/5
+no switchport
+ip address 172.20.1.129 255.255.255.224
+exit
+
+interface fa 0/6
+no switchport
+ip address 172.20.2.1 255.255.255.224
+exit
+interface fa 0/7
+no switchport
+ip address 172.20.2.129 255.255.255.224
+exit
+
+ip routing
