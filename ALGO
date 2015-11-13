@@ -177,3 +177,407 @@ SW_ESTRATEGIA(config-if)#SW
 SW_ESTRATEGIA(config-if)#SWitchport MO
 SW_ESTRATEGIA(config-if)#SWitchport MOde TR
 SW_ESTRATEGIA(config-if)#SWitchport MOde TRunk 
+
+
+
+FastEthernet0/24       unassigned      YES manual down                  down
+ 
+GigabitEthernet0/1     unassigned      YES manual down                  down
+ 
+GigabitEthernet0/2     unassigned      YES manual down                  down
+ 
+Vlan1                  unassigned      YES manual administratively down down
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vla
+Switch(config)#vlan 250
+Switch(config-vlan)#ip adr
+Switch(config-vlan)#inter
+Switch(config-vlan)#intervl
+Switch(config-vlan)#exit
+Switch(config)#inter
+Switch(config)#interface vl
+Switch(config)#interface vlan 250
+Switch(config-if)#
+%LINK-5-CHANGED: Interface Vlan250, changed state to up
+ip ad
+Switch(config-if)#ip address 192.168.250.1 255.255.255.0
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#ip de
+Switch(config-if)#exit
+Switch(config)#ip de
+Switch(config)#ip default-gateway 192.168.250.254
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#sw
+Switch(config)#hos
+Switch(config)#hostname 
+Switch(config)#hostname SW_FINANZAS
+SW_FINANZAS(config)#
+SW_FINANZAS#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+SW_FINANZAS(config)#VL
+SW_FINANZAS(config)#VLan 100
+SW_FINANZAS(config-vlan)#
+SW_FINANZAS#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+SW_FINANZAS(config)#INTER
+SW_FINANZAS(config)#INTERface FAS
+SW_FINANZAS(config)#INTERface FAStEthernet 0/1
+SW_FINANZAS(config-if)#SW
+SW_FINANZAS(config-if)#SWitchport MO
+SW_FINANZAS(config-if)#SWitchport MOde TR
+SW_FINANZAS(config-if)#SWitchport MOde TRunk 
+
+SW_FINANZAS(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan250, changed state to up
+
+SW_FINANZAS(config-if)#
+SW_FINANZAS(config-if)#
+SW_FINANZAS(config-if)#
+SW_FINANZAS#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+%LINK-5-CHANGED: Interface FastEthernet0/2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+SW_FINANZAS(config)#inter
+SW_FINANZAS(config)#interface fas
+SW_FINANZAS(config)#interface fastEthernet 0/2
+SW_FINANZAS(config-if)#sw
+SW_FINANZAS(config-if)#switchport moacx
+SW_FINANZAS(config-if)#switchport moa
+SW_FINANZAS(config-if)#switchport mo
+SW_FINANZAS(config-if)#switchport mode ac
+SW_FINANZAS(config-if)#switchport mode access 
+SW_FINANZAS(config-if)#sw
+SW_FINANZAS(config-if)#switchport ac
+SW_FINANZAS(config-if)#switchport access vl
+SW_FINANZAS(config-if)#switchport access vlan 100
+SW_FINANZAS(config-if)#
+SW_FINANZAS(config-if)#
+SW_FINANZAS(config-if)#
+SW_FINANZAS(config-if)#
+SW_FINANZAS#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#
+SW_FINANZAS#sh inter
+SW_FINANZAS#sh interfaces vl
+SW_FINANZAS#sh interfaces vlan 250
+Vlan250 is up, line protocol is up
+  Hardware is CPU Interface, address is 00d0.ff50.e0d3 (bia 00d0.ff50.e0d3)
+  Internet address is 192.168.250.1/24
+  MTU 1500 bytes, BW 100000 Kbit, DLY 1000000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 21:40:21, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     1682 packets input, 530955 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicast)
+     0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     563859 packets output, 0 bytes, 0 underruns
+     0 output errors, 23 interface resets
+     0 output buffer failures, 0 output buffers swapped out
+SW_FINANZAS#sh inter
+SW_FINANZAS#sh interfaces vl
+SW_FINANZAS#sh interfaces vlan 250
+Vlan250 is up, line protocol is up
+  Hardware is CPU Interface, address is 00d0.ff50.e0d3 (bia 00d0.ff50.e0d3)
+  Internet address is 192.168.250.1/24
+  MTU 1500 bytes, BW 100000 Kbit, DLY 1000000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 21:40:21, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     1682 packets input, 530955 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicast)
+     0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     563859 packets output, 0 bytes, 0 underruns
+     0 output errors, 23 interface resets
+     0 output buffer failures, 0 output buffers swapped out
+SW_FINANZAS#ping 192.168.250.254
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.250.254, timeout is 2 seconds:
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 0/0/0 ms
+
+SW_FINANZAS#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+SW_FINANZAS(config)#en
+SW_FINANZAS(config)#ena
+SW_FINANZAS(config)#enable se
+SW_FINANZAS(config)#enable secret cisco
+SW_FINANZAS(config)#line
+SW_FINANZAS(config)#line vt
+SW_FINANZAS(config)#line vty 0 14
+SW_FINANZAS(config-line)#pas
+SW_FINANZAS(config-line)#password cisco
+SW_FINANZAS(config-line)#
+SW_FINANZAS(config-line)#
+
+
+
+
+ip ad
+Switch(config-if)#ip address 192.168.250.254 255.255.255.0
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#interface vlan 100
+Switch(config-if)#
+%LINK-5-CHANGED: Interface Vlan100, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan100, changed state to up
+
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#ip ad
+Switch(config-if)#ip address 10.21.0.33 255.255.255.224
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#inter
+Switch(config)#interface fas
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#sw
+Switch(config-if)#switchport mo
+Switch(config-if)#switchport mode tr
+Switch(config-if)#switchport mode trunk 
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#sw
+Switch(config-if)#switchport tr
+Switch(config-if)#switchport trunk en
+Switch(config-if)#switchport trunk encapsulation d
+Switch(config-if)#switchport trunk encapsulation dot1q 
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport mode trunk 
+
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#
+Switch#sh run
+Switch#sh running-config 
+Building configuration...
+
+Current configuration : 1307 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan100
+ ip address 10.21.0.33 255.255.255.224
+!
+interface Vlan250
+ ip address 192.168.250.254 255.255.255.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#ip rou
+Switch(config)#ip rout
+Switch(config)#ip routi
+Switch(config)#ip routing 
+Switch(config)#
+Switch(config)#
