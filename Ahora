@@ -1,4 +1,4 @@
-SW CAPA 3
+SW CAPA 3 red 1
 
 enable
 configure terminal
@@ -129,7 +129,7 @@ network 10.21.1.64 0.0.0.31 area 0
 exit
 ######################################################
 
-Switch L2
+Switch1 L2 red1
 
 enable
 configure terminal
@@ -171,7 +171,7 @@ exit
 ip default-gateway 172.25.25.1
 
 ####################################################
-
+sw2 red1
 enable
 configure terminal
 hostname SW2
@@ -213,7 +213,7 @@ ip default-gateway 172.25.25.1
 
 ##################################################
 
-ospf router core
+ospf router core l2 y l3
 
 enable
 configure terminal
