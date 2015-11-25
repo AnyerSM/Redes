@@ -41,12 +41,12 @@ name presidencia
 
 interface range fa 0/1-15
 switchport mode access
-switchport access vlan 1
+switchport access vlan 5
 switchport mode trunk
 exit
 
-interface vlan 1
-ip add 154.18.1.1 255.255.255.0
+interface vlan 5
+ip add 172.25.25.1 255.255.255.0
 no shutdown
 exit
 
