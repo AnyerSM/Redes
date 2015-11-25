@@ -213,7 +213,7 @@ ip default-gateway 172.25.25.1
 
 ##################################################
 
-ospf
+ospf router core
 
 enable
 configure terminal
@@ -244,5 +244,23 @@ exit
 interface fa 0/3
 no switchport
 ip address 10.25.25.9 255.255.255.252
+no shutdown
+exit
+
+interface fa 0/4
+no switchport
+ip address 10.25.25.13 255.255.255.252
+no shutdown
+exit
+
+interface fa 0/5
+no switchport
+ip address 10.25.25.17 255.255.255.252
+no shutdown
+exit
+
+interface fa 0/6
+no switchport
+ip address 10.25.25.21 255.255.255.252
 no shutdown
 exit
