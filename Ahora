@@ -104,3 +104,46 @@ interface vlan 110
 ip add 10.21.1.65 255.255.255.224
 no shutdown
 exit
+
+######################################################
+
+Switch L2
+
+enable
+configure terminal
+hostname SW1
+enable secret class
+line console 0 
+password cisco
+login
+exit
+line vty 0 15
+password cisco1
+login 
+exit
+
+vtp mode transparent
+vtp domain cisco
+vtp password cisco
+
+vlan 5
+name admon
+vlan 100
+name finanzas
+
+interface range fa 0/1-5
+switchport mode access
+switchport access vlan 5
+switchport mode trunk
+exit
+
+interface range fa 0/20-24
+switchport mode access
+switchport access vlan 100
+exit
+
+interface vlan 1
+ip add 172.25.25.2 255.255.255.0
+no shutdown
+exit
+ip default-gateway 172.25.25.1
