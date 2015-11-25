@@ -142,8 +142,49 @@ switchport mode access
 switchport access vlan 100
 exit
 
-interface vlan 1
+interface vlan 5
 ip add 172.25.25.2 255.255.255.0
+no shutdown
+exit
+ip default-gateway 172.25.25.1
+
+####################################################
+
+enable
+configure terminal
+hostname SW2
+enable secret class
+line console 0 
+password cisco
+login
+exit
+line vty 0 15
+password cisco1
+login 
+exit
+
+vtp mode transparent
+vtp domain cisco
+vtp password cisco
+
+vlan 5
+name admon
+vlan 101
+name merca
+
+interface range fa 0/1-5
+switchport mode access
+switchport access vlan 5
+switchport mode trunk
+exit
+
+interface range fa 0/20-24
+switchport mode access
+switchport access vlan 101
+exit
+
+interface vlan 5
+ip add 172.25.25.3 255.255.255.0
 no shutdown
 exit
 ip default-gateway 172.25.25.1
